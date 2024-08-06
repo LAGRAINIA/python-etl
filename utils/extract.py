@@ -34,6 +34,7 @@ def extract_data():
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {TOKEN}'
     }
+    print("********************************", headers, '*******************')
 
     ### Perform the request ###
     try:
@@ -60,10 +61,12 @@ def extract_data():
     today = datetime.datetime.now()
     
     # Since we want to run this daily, we will need yesteday
-    yesterday = today - timedelta(days=1)
+    yesterday = today - timedelta(days=0)
 
     ### Loop through each song to get the info we want ###
     for song in data['items']:
+        #print(yesterday.strftime('%Y-%m-%d'))
+        #print(song['played_at'][0:10])
         if yesterday.strftime('%Y-%m-%d') == song['played_at'][0:10]:
             # We just want to grab songs from yesterday
             song_names.append(song['track']['name'])

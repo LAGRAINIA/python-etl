@@ -22,7 +22,7 @@ def check_if_valid_data(df: pd.DataFrame):
 
     # Check we are only saving songs from yesterday
     today = datetime.datetime.now()
-    yesterday = today - datetime.timedelta(days=1)
+    yesterday = today - datetime.timedelta(days=0)
     yesterday = yesterday.replace(hour=0, minute=0, second=0, microsecond=0)
 
     timestamps = df['timestamp'].tolist()
