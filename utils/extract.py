@@ -39,7 +39,7 @@ def extract_data():
     ### Perform the request ###
     try:
         r = requests.get(
-            f"https://api.spotify.com/v1/me/player/recently-played",
+            f"https://api.spotify.com/v1/me/player/recently-played?limit=50",
             headers = headers)
     except:
         raise Exception(f'The Spotify request went wrong')
